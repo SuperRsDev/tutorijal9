@@ -1,8 +1,6 @@
-package ba.unsa.etf.rs.tutorijal8;
+package ba.unsa.etf.rs.tutorijal9;
 
 import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.Collection;
 
 public class TransportDAO {
     private static TransportDAO instance;

@@ -1,4 +1,4 @@
-package ba.unsa.etf.rs.tutorijal8;
+package ba.unsa.etf.rs.tutorijal9;
 
 import java.time.LocalDate;
 
@@ -9,12 +9,12 @@ public class Driver {
     private LocalDate birthDay;
     private LocalDate employeementDay;
 
-    public Driver(String test, String testović, String s, LocalDate localDate, LocalDate now) {
-        name = test;
-        surename = testović;
-        jmbg = s;
-        birthDay = localDate;
-        employeementDay = now;
+    public Driver(String name, String surename, String jmb, LocalDate birthDay, LocalDate employeementDay) {
+        this.name = name;
+        this.surename = surename;
+        this.jmbg = jmb;
+        this.birthDay = birthDay;
+        this.employeementDay = employeementDay;
     }
 
 

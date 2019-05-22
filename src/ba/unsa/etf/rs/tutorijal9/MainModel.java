@@ -1,19 +1,18 @@
-package ba.unsa.etf.rs.tutorijal8;
+package ba.unsa.etf.rs.tutorijal9;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class MainModel {
 
     private static TransportDAO dao ;
 
     public static void main(String[] args) {
-	    // write your code here
         dao = TransportDAO.getInstance();
         Scanner tok = new Scanner(System.in);
-        String result="";
+        String result;
         while (tok.hasNextLine()) {
             result = tok.nextLine();
             switch (result){

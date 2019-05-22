@@ -1,6 +1,4 @@
-package ba.unsa.etf.rs.tutorijal8;
-
-import java.util.ArrayList;
+package ba.unsa.etf.rs.tutorijal9;
 
 public class Bus {
     private String maker;
