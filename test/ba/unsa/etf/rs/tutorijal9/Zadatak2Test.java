@@ -1,5 +1,7 @@
 package ba.unsa.etf.rs.tutorijal9;
 
+import ba.unsa.etf.rs.tutorijal9.DAO.Bus;
+import ba.unsa.etf.rs.tutorijal9.DAO.Driver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

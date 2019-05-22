@@ -1,5 +1,8 @@
 package ba.unsa.etf.rs.tutorijal9;
 
+import ba.unsa.etf.rs.tutorijal9.DAO.Bus;
+import ba.unsa.etf.rs.tutorijal9.DAO.Driver;
+
 import java.util.ArrayList;
 
 public class TransportDAO {

@@ -1,5 +1,7 @@
 package ba.unsa.etf.rs.tutorijal9;
 
+import ba.unsa.etf.rs.tutorijal9.DAO.Bus;
+import ba.unsa.etf.rs.tutorijal9.DAO.Driver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +34,7 @@ class Zadatak1Test {
         assertAll(()->{
             assertEquals(1,drivers.size());
             assertEquals("Test",drivers.get(0).getName());
-            assertEquals(LocalDate.of(1997,2,11),drivers.get(0).getBirthday());
+            assertEquals(LocalDate.of(1997,2,11),drivers.get(0).getBirthDay());
         });
     }
 
