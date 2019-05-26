@@ -39,15 +39,27 @@ public class BusController {
         unosSjedista.getValueFactory().valueProperty().bindBidirectional(model.getTrenutniAutobus().seatNumberProperty());
         unosVozaca.textProperty().bindBidirectional(model.getTrenutniAutobus().makerProperty());
 
-        spisakAutobusa.getSelectionModel().selectedItemProperty().addListener((observableValue, noviVozac, stariVozac) -> {
-            unBindFieldsToProperties(stariVozac);
-            model.setTrenutniAutobus(noviVozac);
-            bindFieldsToProperties(noviVozac);
+        spisakAutobusa.getSelectionModel().selectedItemProperty().addListener((observableValue, noviBus, stariBus) -> {
+            if(noviBus == null) {
+                return;
+            }
+            unBindFieldsToProperties(stariBus);
+            model.setTrenutniAutobus(noviBus);
+            bindFieldsToProperties(noviBus);
         });
     }
 
     public void dodajAutobus(ActionEvent actionEvent) {
         // get a handle to the stage
+        Bus bus = new Bus(unosProizvodjaca.getText(), unosSerije.getText(), unosSjedista.getValue());
+        model.dodajAutobus(bus);
+    }
+
+    public void prodajAutobus(ActionEvent actionEvent) {
+        Bus bus = model.getTrenutniAutobus();
+        model.prodajAutobus(bus);
+        Bus sljedeci = model.getNextBus(bus);
+        model.setTrenutniAutobus(sljedeci);
     }
 
     private void bindFieldsToProperties(Bus novaOsoba) {
@@ -68,5 +80,12 @@ public class BusController {
         unosSerije.textProperty().unbindBidirectional(model.getTrenutniAutobus().seriesProperty());
         unosSjedista.getValueFactory().valueProperty().unbindBidirectional(model.getTrenutniAutobus().seatNumberProperty());
         unosVozaca.textProperty().unbindBidirectional(model.getTrenutniAutobus().makerProperty());
+    }
+
+    private void clearFields() {
+        unosProizvodjaca.textProperty().setValue("");
+        unosSerije.textProperty().setValue("");
+        unosSjedista.getValueFactory().setValue(null);
+        unosVozaca.textProperty().setValue("");
     }
 }

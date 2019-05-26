@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Zadatak1Test {
 
-    @BeforeEach
+    /*@BeforeEach
     void prepareDatabase(){
         TransportDAO dao = TransportDAO.getInstance();
         dao.resetDatabase();
@@ -109,5 +109,5 @@ class Zadatak1Test {
         InputStream defaultSystemIn = System.in;
         System.setIn(inputHolder);
         return defaultSystemIn;
-    }
+    }*/
 }

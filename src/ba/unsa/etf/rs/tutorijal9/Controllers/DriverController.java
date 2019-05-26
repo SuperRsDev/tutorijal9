@@ -41,6 +41,9 @@ public class DriverController {
         unosZaposlenja.valueProperty().bindBidirectional(model.getTrenutniVozac().employeementDayProperty());
 
         spisakVozaca.getSelectionModel().selectedItemProperty().addListener((observableValue, noviVozac, stariVozac) -> {
+            if(noviVozac == null) {
+                return;
+            }
             unBindFieldsToProperties(stariVozac);
             model.setTrenutniVozac(noviVozac);
             bindFieldsToProperties(noviVozac);
@@ -48,17 +51,18 @@ public class DriverController {
     }
 
     public void dodajVozaca(ActionEvent actionEvent) {
-        // get a handle to the stage
-        Stage stage = (Stage) closeButton.getScene().getWindow();
-        // do what you have to do
-        stage.close();
+        Driver driver = new Driver(unosImena.getText(), unosPrezimena.getText(), unosJMB.getText(),
+                unosRodjenja.getValue(), unosZaposlenja.getValue());
+        model.dodajVozaca(driver);
     }
 
     public void otpustiVozaca(ActionEvent actionEvent) {
         // get a handle to the stage
-        Stage stage = (Stage) closeButton.getScene().getWindow();
-        // do what you have to do
-        stage.close();
+        Driver vozac = model.getTrenutniVozac();
+        model.otpustiVozaca(vozac);
+        Driver sljedeci = model.getNextDriver(vozac);
+        model.setTrenutniVozac(sljedeci);
+        this.clearFields();
     }
 
     private void bindFieldsToProperties(Driver novaOsoba) {
@@ -81,5 +85,13 @@ public class DriverController {
         unosJMB.textProperty().unbindBidirectional(stariVozac.jmbgProperty());
         unosRodjenja.valueProperty().unbindBidirectional(stariVozac.birthDayProperty());
         unosZaposlenja.valueProperty().unbindBidirectional(stariVozac.employeementDayProperty());
+    }
+
+    private void clearFields() {
+        unosImena.textProperty().setValue("");
+        unosPrezimena.textProperty().setValue("");
+        unosJMB.textProperty().setValue("");
+        unosRodjenja.valueProperty().setValue(null);
+        unosZaposlenja.valueProperty().setValue(null);
     }
 }

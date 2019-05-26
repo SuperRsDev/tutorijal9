@@ -3,6 +3,7 @@ package ba.unsa.etf.rs.tutorijal9;
 
 import ba.unsa.etf.rs.tutorijal9.DAO.Bus;
 import ba.unsa.etf.rs.tutorijal9.DAO.Driver;
+import ba.unsa.etf.rs.tutorijal9.Models.TransportModel;
 import org.junit.jupiter.api.*;
 
 
@@ -15,11 +16,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PripremaTest {
 
-    private TransportDAO dao;
-
+    private TransportModel dao;
+/*
     @BeforeAll
     static void vratiNaPocetak(){
-        TransportDAO dao = TransportDAO.getInstance();
         dao.resetDatabase();
     }
 
@@ -98,5 +98,5 @@ class PripremaTest {
                 }
         );
 
-    }
+    }*/
 }
